@@ -11,22 +11,36 @@
 
 <body>
     <header>
-        <h1>The Dice Roll</h1>
+        <img class="die" src="2_dice.png">
+        <h1>The <span class="header-color-var">Dice</span> Roll</h1>
+        <img class="die" src="2_dice.png">
     </header>
     <div class="main">
-        <div class="header">
-
+        <div class="container-top">
+            <div class="how-many">
+                <p>How many sides would you like your Dice to have?</p>
+            </div>
+            <div class="rolling">
+                <label id="dice_1">Dice #1</label>
+                <img src="dice.png" class="minidice">
+                <input type="number" name="value" id="value_1" min="2" max="10">
+                <label id="dice_2">Dice #2</label>
+                <img src="dice.png" class="minidice">
+                <input type="number" name="value" id="value_2" min="2" max="10">
+                <p><span class="click-emphasis">Click</span> the Dice to roll.</p>
+                <img class="dice" src="dice.png" onclick="roll()" id="click" value="spin">
+            </div>
         </div>
-        <div class="how-many">
-            <p>How many sides would you like your Dice to have?</p>
-        </div>
-        <div class="rolling">
-            <input id="value" type="number" min="1" max="10">
-            <button onclick="roll()" id="click" value="spin">Spin</button>
-        </div>
+        <div class="container-bottom">
         <div class="result-bar">
-            <p id="result">Your result will be displayed here:</p>
+            <p id="result">Waiting for roll...</p>
         </div>
+    </div>
+    <div class="footer">
+        <footer>
+            <p class="made-by">Made by Tjarnfors Studios.</p>
+            <p>Licensed to devsInc©.</p>
+        </footer>
     </div>
 </body>
 
