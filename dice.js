@@ -22,7 +22,9 @@ function roll() {
     document.getElementById("result").innerHTML = removeComma;
 
   } else {
+
     alert("You have to pick the amount of sides for your Die!");
+    
   }
 
   // The test below measures if the two randomly-generated die equals the sum.
