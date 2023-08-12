@@ -1,45 +1,72 @@
-function roll() {
+let x;
+let y;
 
-  let x = document.getElementById("value_1").value;
-  let y = document.getElementById("value_2").value;
+let x_spin;
+let y_spin;
 
-  let x_spin = Math.floor(1 + Math.random() * x);
-  let y_spin = Math.floor(1 + Math.random() * y);
+let sum;
 
-  let sum = x_spin + y_spin;
+let resultsDisplay;
 
-  let resultsDisplay = [x_spin, " + ", y_spin, " = ", sum]; // Created an Array to display the two spins and result in one variable.
-
-  let removeComma = resultsDisplay.join(" "); // Removes the commas in the Array and replaces them with a space.
+function diceRotation() {
 
   var diceAnimation = document.getElementById("click"); 
 
+  diceAnimation.classList.remove("rotation");
+  void diceAnimation.offsetWidth; // Forces the browser to trigger the animation reset instantly.
+  diceAnimation.classList.add("rotation");
+
+}
+
+function numberGenerator() {
+
+  x = document.getElementById("value_1").value;
+  y = document.getElementById("value_2").value;
+
+  x_spin = Math.floor(1 + Math.random() * x);
+  y_spin = Math.floor(1 + Math.random() * y);
+
+  sum = x_spin + y_spin;
+
+  return x_spin, y_spin, sum;
+
+}
+
+function results() {
+
+  let resultsArray = [x_spin, " + ", y_spin, " = ", sum]; // Created an Array to display the two spins and result in one variable.
+
+  resultsDisplay = resultsArray.join(" "); // Removes the commas in the Array and replaces them with a space.
+ 
+  return resultsDisplay;
+
+}
+
+function roll() {
+
+  numberGenerator();
+
+  results();
+
+  
   if (x > 0 && y > 0) { 
 
-    diceAnimation.classList.remove("rotation");
-    void diceAnimation.offsetWidth; // Forces the browser to trigger the animation reset instantly.
-    diceAnimation.classList.add("rotation");
-    document.getElementById("result").innerHTML = removeComma;
+    diceRotation();
+
+    document.getElementById("result").innerHTML = resultsDisplay;
 
   } else {
 
     alert("You have to pick the amount of sides for your Die!");
     
   }
-
-  // The test below measures if the two randomly-generated die equals the sum.
-  
-  function test () {
-
-    if (((x_spin = 7) + (y_spin = 5)) != 12) {
-      console.log('Test failed, sum is not equal.');
-    }
-    else {
-      console.log('Test successful.');
-    }
-  }
-  
   test();
 }
 
+
+function test() {
+
+  console.log(x_spin,y_spin);
+
+}
 
